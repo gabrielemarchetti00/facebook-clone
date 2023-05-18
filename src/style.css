@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    background-color: #d1d5db;
+    align-items: center;
+}
+
+#logo {
+    border-radius: 100px;
+    height: 90px;
+    margin-left: 20px;
+}
+
+#navbar {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+}
+
+#signIn-btn {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+#home-tab:hover {
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+#friends-tab:hover {
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+#addPost-tab:hover {
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
