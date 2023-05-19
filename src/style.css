@@ -2,6 +2,7 @@ body{
     margin: 0;
 }
 
+/*header*/
 #header {
     display: flex;
     justify-content: space-between;
@@ -46,6 +47,12 @@ body{
     cursor: pointer;
 }
 
+#user-name:hover {
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
 #user-pic {
     height: 60px;
     border-radius: 100px;
@@ -60,4 +67,24 @@ body{
 #user-name {
     font-size: 30px;
     margin-right: 20px;
+}
+
+/*add post*/
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+#addpost-div {
+    height: 700px;
+    width: 700px;
+    margin-top: 70px;
+    background-color: #d1d5db;
+}
+
+#addpost-form,
+#pic-input,
+#text-input,
+#addpost-btn {
+    font-size: 25px;
 }

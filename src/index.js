@@ -2,6 +2,7 @@ import { initialLoad } from "./tabs/home";
 import { friendsLoad } from "./tabs/friends";
 import { addPostLoad } from "./tabs/addPost";
 import { initializeApp } from "firebase/app";
+import { profileLoad } from "./tabs/profile";
 import {
     getAuth,
     onAuthStateChanged,
@@ -93,6 +94,12 @@ const addPostTab = document.querySelector('#addPost-tab');
 addPostTab.addEventListener('click', () => {
   content.innerHTML = '';
   addPostLoad();
+})
+
+const profileTab = document.querySelector('#user-name');
+profileTab.addEventListener('click', () => {
+  content.innerHTML = '';
+  profileLoad();
 })
 
 
