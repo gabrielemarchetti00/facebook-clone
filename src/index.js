@@ -29,12 +29,11 @@ function signOutUser() {
   signOut(getAuth());
 }
 
-function getProfilePicUrl() {
-  console.log(getAuth().currentUser)
+export function getProfilePicUrl() {
   return getAuth().currentUser.photoURL;
 }
 
-function getUserName() {
+export function getUserName() {
   return getAuth().currentUser.displayName;
 }
 
