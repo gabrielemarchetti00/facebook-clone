@@ -90,7 +90,9 @@ function loadRequests() {
     onSnapshot(requestsQuery, function(snapshot) {
         snapshot.docChanges().forEach(function(change) {
             let request = change.doc.data();
-            displayRequests(change.doc.id, request.sender)
+            if(request.accepted == false) {
+                displayRequests(change.doc.id, request.sender)
+            }
         })
     })
 }
@@ -115,6 +117,17 @@ function createRequestDiv(id, sender) {
     acceptBtn.textContent = 'Accept';
     acceptBtn.className = 'accept-btn';
     requestDiv.appendChild(acceptBtn);
+
+    acceptBtn.addEventListener('click', function() {
+        acceptRequest(id)
+    });
+}
+
+async function acceptRequest(id) {
+    const reqRef = doc(getFirestore(), 'requests', id)
+    await updateDoc(reqRef, {
+        accepted: true
+    })
 }
 
 const content = document.querySelector('#content');
