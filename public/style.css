@@ -1,7 +1,3 @@
-body{
-    margin: 0;
-}
-
 /*header*/
 #header {
     display: flex;
@@ -108,4 +104,52 @@ body{
 
 .post-div {
     background-color: #d1d5db;;
+}
+
+/*friends-users*/ 
+#friends-div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    width: 1200px;
+}
+
+#users-div {
+    width: 500px;
+    height: 700px;
+    background-color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.request-btn {
+    font-size: 20px;
+}
+
+/*friends-requests*/
+
+#requests-div {
+    width: 500px;
+    height: 700px;
+    background-color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.request-div {
+    font-size: 20px;
+}
+
+.accept-btn {
+    font-size: 20px;
 }

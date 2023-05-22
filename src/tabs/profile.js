@@ -11,6 +11,7 @@ import {
     doc,
     serverTimestamp,
 } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 export function profileLoad() {
     content.appendChild(profileDiv);
@@ -23,8 +24,9 @@ function loadPosts() {
     onSnapshot(postsQuery, function(snapshot) {
         snapshot.docChanges().forEach(function(change) {
             let post = change.doc.data();
-            displayPost(change.doc.id, post.timestamp, post.user,
-                          post.text, post.profilePicUrl, post.image);
+            if(post.user == getAuth().currentUser.displayName) {
+                displayPost(change.doc.id, post.timestamp, post.user, post.text, post.profilePicUrl, post.image);
+            }
         });
       });
 }

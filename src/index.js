@@ -10,6 +10,19 @@ import {
     signInWithPopup,
     signOut,
   } from 'firebase/auth';
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    query,
+    orderBy,
+    limit,
+    onSnapshot,
+    setDoc,
+    updateDoc,
+    doc,
+    serverTimestamp,
+} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCF_8rxNevkXu_HpnSTKvnlNUsb40rTJlI",
@@ -23,6 +36,7 @@ const firebaseConfig = {
 async function signIn() {
     var provider = new GoogleAuthProvider();
     await signInWithPopup(getAuth(), provider);
+    saveUser(getAuth().currentUser.displayName, getAuth().currentUser.photoURL)
 }
 
 function signOutUser() {
@@ -59,6 +73,18 @@ function authStateObserver(user) {
     signOutBtn.setAttribute('hidden', 'true')
     userNameElement.setAttribute('hidden', 'true');
     userPicElement.setAttribute('hidden', 'true');
+  }
+}
+
+async function saveUser(name, photo) {
+  try {
+    const userRef = await addDoc(collection(getFirestore(), 'users'), {
+        name: name,
+        photo: photo
+    });
+  }
+  catch(error) {
+    console.error('Error writing new user to Firebase Database', error);
   }
 }
 
