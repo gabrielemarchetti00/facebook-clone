@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 /*header*/
 #header {
     display: flex;
@@ -98,21 +102,24 @@
     gap: 20px;
 }
 
-.post-div > img {
+.profile-post-div > img {
     width: 400px;
+    padding: 30px;
 }
 
-.post-div {
-    background-color: #d1d5db;;
+.profile-post-div {
+    background-color: #d1d5db;
+    width: 500px;
+    text-align: center;
 }
 
-/*friends-users*/ 
+/*friends*/ 
 #friends-div {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     gap: 20px;
-    margin-top: 40px;
-    width: 1200px;
+    font-size: 30px;
 }
 
 #users-div {
@@ -121,7 +128,13 @@
     background-color: #d1d5db;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
+}
+
+.user-div > img {
+    height: 80px;
+    border-radius: 100px;
 }
 
 .user-div {
@@ -129,27 +142,37 @@
     align-items: center;
     gap: 20px;
     font-size: 20px;
+    margin-top: 20px;
 }
 
-.request-btn {
-    font-size: 20px;
-}
-
-/*friends-requests*/
-
-#requests-div {
-    width: 500px;
-    height: 700px;
-    background-color: #d1d5db;
+/*home*/
+#home-div {
+    width: 700px;
+    font-size: 30px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
 }
 
-.request-div {
-    font-size: 20px;
+.user-data {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
 }
 
-.accept-btn {
-    font-size: 20px;
+.user-photo {
+    height: 60px;
+    border-radius: 100px;
+}
+
+.post-div > img {
+    width: 400px;
+}
+
+.post-div {
+    background-color: #d1d5db;
+    width: 500px;
+    text-align: center;
 }

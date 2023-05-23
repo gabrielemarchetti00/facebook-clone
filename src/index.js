@@ -14,14 +14,6 @@ import {
     getFirestore,
     collection,
     addDoc,
-    query,
-    orderBy,
-    limit,
-    onSnapshot,
-    setDoc,
-    updateDoc,
-    doc,
-    serverTimestamp,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -77,15 +69,17 @@ function authStateObserver(user) {
 }
 
 async function saveUser(name, photo) {
-  try {
-    const userRef = await addDoc(collection(getFirestore(), 'users'), {
-        name: name,
-        photo: photo
+    const q = query(collection(getFirestore(), 'users'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach(async function(doc) {
+        let user = doc.data();
+        if(user.name !== name) {
+          const userRef = await addDoc(collection(getFirestore(), 'users'), {
+            name: name,
+            photo: photo
+        });
+        }
     });
-  }
-  catch(error) {
-    console.error('Error writing new user to Firebase Database', error);
-  }
 }
 
 let signInBtn = document.getElementById("signIn-btn");
@@ -99,8 +93,6 @@ signOutBtn.addEventListener("click", signOutUser);
 const app = initializeApp(firebaseConfig);
 initFirebaseAuth();
 
-
-initialLoad();
 
 const content = document.querySelector('#content');
 const homeTab = document.querySelector('#home-tab');

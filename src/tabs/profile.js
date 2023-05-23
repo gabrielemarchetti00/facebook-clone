@@ -1,15 +1,8 @@
 import {
     getFirestore,
     collection,
-    addDoc,
     query,
-    orderBy,
-    limit,
     onSnapshot,
-    setDoc,
-    updateDoc,
-    doc,
-    serverTimestamp,
 } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
@@ -47,7 +40,7 @@ function displayPost(id, timestamp, user, text, picUrl, image) {
 function createPost(id, image, text) {
     const postDiv = document.createElement('div');
     postDiv.id = id;
-    postDiv.className = 'post-div';
+    postDiv.className = 'profile-post-div';
     profileDiv.appendChild(postDiv);
 
     const pic = document.createElement('img');
